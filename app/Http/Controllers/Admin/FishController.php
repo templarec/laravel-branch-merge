@@ -27,7 +27,7 @@ class FishController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.fish.create');
     }
 
     /**
@@ -38,7 +38,20 @@ class FishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric',
+        'weight' => 'required|numeric',
+        'race' => 'nullable|string|max:255',
+      ]);
+
+      $data = $request->all();
+      $data['slug'] = $this->generateSlug($data['name']);
+
+      $fish = new Fish();
+      $fish->create($data);
+
+      return redirect()->route('admin.fish.index');
     }
 
     /**
@@ -85,4 +98,26 @@ class FishController extends Controller
     {
         //
     }
+    private function generateSlug(string $title, bool $change = true)
+{
+  $slug = Str::slug($title, '-');
+
+  if (!$change) {
+    return $slug;
+  }
+
+  $slug_base = $slug;
+  $contatore = 1;
+
+  $post_with_slug = Fish::where('slug', '=', $slug)->first();
+  while ($post_with_slug) {
+    $slug = $slug_base . '-' . $contatore;
+    $contatore++;
+
+    $post_with_slug = Fish::where('slug', '=', $slug)->first();
+  }
+  return $slug;
+
+}
+
 }
