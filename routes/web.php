@@ -17,10 +17,16 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('users', 'UserController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('clients', 'ClientController');
+Route::prefix('Admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->name('Admin.')
+    ->group(function () {
+        Route::resource('users', 'UserController');
+        Route::resource('clients', 'ClientController');
+    });
