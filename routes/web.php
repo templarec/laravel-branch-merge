@@ -14,21 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('Admin')
     ->namespace('Admin')
     ->middleware('auth')
     ->name('Admin.')
     ->group(function () {
+        Route::get('/home', 'HomeController@index')->name('home');
         Route::resource('users', 'UserController');
         Route::resource('clients', 'ClientController');
         Route::resource('orders', 'OrderController');
         Route::resource('payments','PaymentController');
+        Route::resource('fish', 'FishController');
     });

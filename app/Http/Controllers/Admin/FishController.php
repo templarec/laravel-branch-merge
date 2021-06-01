@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Fish;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class FishController extends Controller
      */
     public function index()
     {
-        //
+      $fish = Fish::all();
+
+      return view ('admin.fish.index', compact ('fish'));
     }
 
     /**
