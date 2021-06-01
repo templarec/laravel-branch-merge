@@ -18,7 +18,8 @@ class CreateFishTable extends Migration
             $table->string('name');
             $table->float('price');
             $table->float('weight');
-            $table->string('race');
+            $table->string('race')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
