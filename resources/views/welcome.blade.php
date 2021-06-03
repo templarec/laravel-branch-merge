@@ -83,7 +83,7 @@
                 <div class="title m-b-md">
                    PESCOSISSIMO
                 </div>
-                <a href="">Home </a>
+                <a href="{{ route('admin.fish.index') }}">Home </a>
             </div>
         </div>
     </body>
