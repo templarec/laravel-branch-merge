@@ -18,10 +18,10 @@
         <div class="col-md-3">
           <div class="card mt-3">
             <div class="card-header">
-
-              <a class="mr-5 text-capitalize" href="{{route('admin.fish.show', ['pesce' => $pesce->id])}}">
                 {{ $pesce->name }}
-              </a>
+              {{-- <a class="mr-5 text-capitalize" href="{{route('admin.fish.show', ['fish' => $pesce->id])}}">
+                {{ $pesce->name }}
+              </a> --}}
             </div>
 
             <div class="card-body">
@@ -35,7 +35,7 @@
                 {{$pesce->race}}
               </div>
 
-              <div class="row justify-content-center flex-wrap mt-5">
+              {{-- <div class="row justify-content-center flex-wrap mt-5">
                 <a class="mr-5" href="{{route('admin.fish.edit', ['pesce' => $pesce->id])}}">
                   <button class="btn btn-primary" type="button" name="button">Modifica</button>
                 </a>
@@ -44,7 +44,7 @@
                   @method('DELETE')
                   <button type="submit" class="btn btn-primary" name="button">Cancella</button>
                 </form>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>

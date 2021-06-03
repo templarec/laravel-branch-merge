@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Fish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FishController extends Controller
 {
