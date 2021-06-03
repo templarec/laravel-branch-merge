@@ -31,4 +31,5 @@ Route::prefix('admin')
         Route::resource('orders', 'OrderController');
         Route::resource('payments','PaymentController');
         Route::resource('fish', 'FishController');
+        Route::resource('trout', 'TroutController');
     });
